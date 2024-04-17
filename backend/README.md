@@ -7,7 +7,7 @@ Le back-end (de test) est développé en Swift via le framework service-side ![V
 Il vous faudra donc suivre ![les étapes d'installation de Vapor](https://docs.vapor.codes/install/macos/) afin de pouvoir executer le backend
 
 
-## Lancez le backend
+## Lancez le backend
 
 Pour cela, il suffit d'ouvrir le projet avec Xcode utilisant la commande `open Package.swift`. Cela va automatiquement ouvrir une nouvelle fenetre de Xcode pour le backend et préparer le projet au lancement
 

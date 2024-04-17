@@ -9,8 +9,9 @@ import SwiftUI
 
 @main
 struct AuraApp: App {
+
     @StateObject var viewModel = AppViewModel()
-    
+
     var body: some Scene {
         WindowGroup {
             Group {
@@ -21,19 +22,18 @@ struct AuraApp: App {
                                 Image(systemName: "person.crop.circle")
                                 Text("Account")
                             }
-                        
+
                         MoneyTransferView()
                             .tabItem {
                                 Image(systemName: "arrow.right.arrow.left.circle")
                                 Text("Transfer")
                             }
                     }
-                    
+
                 } else {
                     AuthenticationView(viewModel: viewModel.authenticationViewModel)
                         .transition(.asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity),
                                                 removal: .move(edge: .top).combined(with: .opacity)))
-                    
                 }
             }
             .accentColor(Color(hex: "#94A684"))
