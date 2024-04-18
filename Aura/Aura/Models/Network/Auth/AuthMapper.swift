@@ -7,15 +7,13 @@
 
 import Foundation
 
-final class AuthMapper {
-
-    private init() {}
+enum AuthMapper {
 
     private struct Root: Decodable {
         let token: String
     }
 
-    private enum Error: Swift.Error {
+    enum Error: Swift.Error {
         case invalidResponse
     }
 

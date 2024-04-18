@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct AccountDetailsItem {
+struct AccountDetailsItem: Equatable {
     let currentBalance: Double
     let transactions: [TransactionItem]
 }
 
-struct TransactionItem {
+struct TransactionItem: Equatable {
     let value: Double
     let label: String
 }

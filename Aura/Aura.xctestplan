@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "33F98254-4425-4C91-8E05-3E09A034641B",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:Aura.xcodeproj",
+          "identifier" : "53D418772AC7099A0070ADB1",
+          "name" : "Aura"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Aura.xcodeproj",
+      "identifier" : "53D418772AC7099A0070ADB1",
+      "name" : "Aura"
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Aura.xcodeproj",
+        "identifier" : "5617861C2BD0DE9E00C959EE",
+        "name" : "AuraTests"
+      }
+    }
+  ],
+  "version" : 1
+}

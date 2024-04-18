@@ -7,9 +7,7 @@
 
 import Foundation
 
-final class AccountDetailsMapper {
-
-    private init() {}
+enum AccountDetailsMapper {
 
     private struct Root: Decodable {
         let currentBalance: Double
@@ -30,7 +28,7 @@ final class AccountDetailsMapper {
         }
     }
 
-    private enum Error: Swift.Error {
+    enum Error: Swift.Error {
         case invalidResponse
     }
 

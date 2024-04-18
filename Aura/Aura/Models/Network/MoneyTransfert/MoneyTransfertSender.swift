@@ -15,7 +15,7 @@ final class MoneyTransfertSender {
         self.client = client
     }
 
-    private enum Error: Swift.Error {
+    enum Error: Swift.Error {
         case invalidStatusCodeResponse
     }
 

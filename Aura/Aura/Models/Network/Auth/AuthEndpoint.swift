@@ -7,9 +7,7 @@
 
 import Foundation
 
-final class AuthEndpoint {
-
-    private init() {}
+enum AuthEndpoint {
 
     private struct AuthRequest: Encodable {
         let username: String

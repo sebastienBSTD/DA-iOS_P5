@@ -7,9 +7,7 @@
 
 import Foundation
 
-final class MoneyTransfertEndpoint {
-
-    private init() {}
+enum MoneyTransfertEndpoint {
 
     private struct MoneyTransfertRequest: Encodable {
         let recipient: String
