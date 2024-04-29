@@ -52,13 +52,27 @@ final class KeychainStore: TokenStore {
     }
 
     func delete() throws {
+        if existsInKeychain() {
+            let query = [
+                kSecClass: kSecClassGenericPassword,
+                kSecAttrAccount: key as Any
+            ] as CFDictionary
+            
+            guard SecItemDelete(query) == noErr else {
+                throw Error.deleteFailed
+            }
+        }
+    }
+
+    private func existsInKeychain() -> Bool {
         let query = [
             kSecClass: kSecClassGenericPassword,
-            kSecAttrAccount: key as Any
+            kSecAttrAccount: key,
+            kSecMatchLimit: kSecMatchLimitOne,
+            kSecReturnAttributes: kCFBooleanTrue as Any
         ] as CFDictionary
-
-        guard SecItemDelete(query) == noErr else {
-            throw Error.deleteFailed
-        }
+        
+        let status = SecItemCopyMatching(query, nil)
+        return status == noErr
     }
 }
