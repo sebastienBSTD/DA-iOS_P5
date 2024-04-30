@@ -20,7 +20,7 @@ final class MoneyTransferViewModelTests: XCTestCase {
         XCTAssertEqual(sut.transferMessage, "")
     }
 
-    func test_init_doesNotTriggerSendMoneyOnInvalidFields() async {
+    func test_sendMoney_doesNotTriggerSendMoneyOnInvalidFields() async {
         let result: Result<(Data, HTTPURLResponse), Error> = .failure(anyNSError())
         let (sut, _, _) = makeSUT(result: result)
 
@@ -43,7 +43,7 @@ final class MoneyTransferViewModelTests: XCTestCase {
         XCTAssertEqual(sut.transferMessage, "Please enter a correct recipient and amount.")
     }
 
-    func test_init_doesNotTriggerSendMoneyOnRetrieveTokenFailed() async {
+    func test_sendMoney_doesNotTriggerSendMoneyOnRetrieveTokenFailed() async {
         let result: Result<(Data, HTTPURLResponse), Error> = .failure(anyNSError())
         let (sut, _, store) = makeSUT(result: result)
 
@@ -56,7 +56,7 @@ final class MoneyTransferViewModelTests: XCTestCase {
         XCTAssertEqual(sut.transferMessage, "Transfert failed")
     }
 
-    func test_init_doesNotTriggerSendMoneyOnRequestFailed() async {
+    func test_sendMoney_doesNotTriggerSendMoneyOnRequestFailed() async {
         let result: Result<(Data, HTTPURLResponse), Error> = .failure(anyNSError())
         let (sut, _, store) = makeSUT(result: result)
 
@@ -69,7 +69,7 @@ final class MoneyTransferViewModelTests: XCTestCase {
         XCTAssertEqual(sut.transferMessage, "Transfert failed")
     }
 
-    func test_init_triggersSendMoneyOnSucceedRequestAccountDetailsAndRetrieveTokenCompleted() async {
+    func test_sendMoney_triggersSendMoneyOnSucceedRequestAccountDetailsAndRetrieveTokenCompleted() async {
         let result: Result<(Data, HTTPURLResponse), Error> = .success((anyData(), anyHTTPURLResponse()))
         let (sut, _, store) = makeSUT(result: result)
 

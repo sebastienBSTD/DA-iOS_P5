@@ -19,7 +19,7 @@ final class AccountDetailViewModelTests: XCTestCase {
         XCTAssertEqual(sut.allTransactions.count, 3)
     }
 
-    func test_init_doesNotTriggerLoadAccountDetailsOnRetrieveTokenFailed() async {
+    func test_loadAccountDetails_doesNotTriggerLoadAccountDetailsOnRetrieveTokenFailed() async {
         let result: Result<(Data, HTTPURLResponse), Error> = .failure(anyNSError())
         let (sut, _, store) = makeSUT(result: result)
 
@@ -31,7 +31,7 @@ final class AccountDetailViewModelTests: XCTestCase {
         XCTAssertEqual(sut.allTransactions.count, 3)
     }
 
-    func test_init_doesNotTriggerLoadAccountDetailsOnRequestFailed() async {
+    func test_loadAccountDetails_doesNotTriggerLoadAccountDetailsOnRequestFailed() async {
         let result: Result<(Data, HTTPURLResponse), Error> = .failure(anyNSError())
         let (sut, _, store) = makeSUT(result: result)
 
@@ -43,7 +43,7 @@ final class AccountDetailViewModelTests: XCTestCase {
         XCTAssertEqual(sut.allTransactions.count, 3)
     }
 
-    func test_init_triggersLoadAccountDetailsOnSucceedRequestAccountDetailsAndRetrieveTokenCompleted() async {
+    func test_loadAccountDetails_triggersLoadAccountDetailsOnSucceedRequestAccountDetailsAndRetrieveTokenCompleted() async {
         let item = makeAccountDetailsItem()
         let json = makeItemsJSON(item.json)
         let result: Result<(Data, HTTPURLResponse), Error> = .success((json, anyHTTPURLResponse()))
